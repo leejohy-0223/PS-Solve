@@ -13,9 +13,25 @@ public class Main {
         int E = Integer.parseInt(st.nextToken());
         int S = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
+        int e = 1, s = 1, m = 1;
 
-        int count = 0;
-
-
+        for (int year = 1; ; year++) {
+            if (e == E && s == S && m == M) {
+                System.out.println(year);
+                return;
+            }
+            e++;
+            s++;
+            m++;
+            if(e == 16) {
+                e = 1;
+            }
+            if(s == 29) {
+                s = 1;
+            }
+            if(m == 20) {
+                m = 1;
+            }
+        }
     }
 }
