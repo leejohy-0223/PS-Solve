@@ -8,7 +8,6 @@ import java.util.Deque;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        //TODO
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         char[] charArray = br.readLine().toCharArray();
         int M = Integer.parseInt(br.readLine());
