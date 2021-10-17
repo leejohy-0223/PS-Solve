@@ -37,13 +37,13 @@ public class Main {
             return;
         }
 
-        // STEP 1 : N-1개를 A에서 B로 이동
+        // STEP 1 : N-1개를 start에서 mid로 이동
         hanoi(n - 1, start, to, mid);
 
-        // STEP 2 : 1개를 A에서 C로 이동
+        // STEP 2 : 1개를 start에서 to으로 이동
         sb.append(start).append(" ").append(to).append("\n");
 
-        // STEP 3 : N-1개를 B에서 C로 이동
+        // STEP 3 : N-1개를 mid에서 to으로 이동
         hanoi(n - 1, mid, start, to);
     }
 }
