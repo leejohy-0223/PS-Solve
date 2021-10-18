@@ -24,7 +24,7 @@ public class MainDfs {
             }
         }
 
-        for(int i=0; i<n; i++) {
+        for (int i = 0; i < n; i++) {
             visited = new boolean[n];
             visited[i] = true;
             dfs(i, i, 0);
@@ -32,15 +32,15 @@ public class MainDfs {
         System.out.println(result_min);
     }
 
-    public static void dfs(int start, int now, long cost){
+    public static void dfs(int start, int now, long cost) {
         if (allVisited()) {
-            if(map[now][start]!=0){
-                result_min = Math.min(result_min, cost+map[now][start]);
+            if (map[now][start] != 0) {
+                result_min = Math.min(result_min, cost + map[now][start]);
             }
             return;
         }
 
-        for(int i=1; i<n; i++){
+        for (int i = 1; i < n; i++) {
             if (!visited[i] && map[now][i] != 0) {
                 visited[i] = true;
                 dfs(start, i, cost + map[now][i]);

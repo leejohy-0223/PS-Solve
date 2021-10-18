@@ -34,6 +34,10 @@ public class Main {
     static void DFS(int L) {
         if (L == N) {
             calculation(tmp);
+            for (int i : tmp) {
+                System.out.print(i + " ");
+            }
+            System.out.println();
             return;
         }
         for(int i = 0; i<arr.length; i++) {
