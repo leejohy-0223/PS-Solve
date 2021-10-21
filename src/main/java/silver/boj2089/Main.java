@@ -15,6 +15,15 @@ public class Main {
             System.out.println(0);
             return;
         }
+        System.out.println(-13 % -2); // -1
+        System.out.println(-13 / -2); // 6
+
+        System.out.println(-1 / -2); // 0
+        System.out.println(-1 % -2); // -1
+
+        System.out.println(1 / -2); // 0
+        System.out.println(1 % -2); // 1
+
         while (N != 0) {
             if (N % 2 == -1) {
                 sb.append((N % 2) + 2);
