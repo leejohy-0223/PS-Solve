@@ -66,7 +66,6 @@ public class Main {
                 chk[i] = false;
             }
         }
-
     }
 
     private static void startOperate() {
