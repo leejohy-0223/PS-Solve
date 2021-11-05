@@ -21,53 +21,62 @@ public class Main {
             return;
         }
 
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < 26; i++) {
-            if (alphabet[i] > 1) {
-                int n = alphabet[i] / 2;
-                for (int j = 0; j < n; j++) {
-                    sb.append((char) (i + 65));
-                }
-                // 1보다 많은 홀수라면, 1로 변경
-                if (alphabet[i] % 2 != 0) {
-                    alphabet[i] = 1;
-                    continue;
-                }
-                // 짝수라면 0처리 후 0으로 변경
-                alphabet[i] = 0;
+        // 홀수 개수 counting
+        int odd = 0;
+
+        for (int i : alphabet) {
+            if (i % 2 != 0) {
+                odd++;
             }
         }
+        System.out.println(odd);
 
-        String copy = sb.toString();
-        String reverse = sb.reverse().toString();
-
-        sb = new StringBuilder();
-        for (int i = 0; i < 26; i++) {
-            if (alphabet[i] == 1) {
-                sb.append((char) (i + 65));
-            }
-        }
-
-        String result = copy + sb + reverse;
-        System.out.println("copy = " + copy);
-        System.out.println("sb = " + sb);
-        System.out.println("reverse = " + reverse);
-
-        if (result.length() != s.length() || !checkSide(result)) {
+        // 홀수가 2개 이상이면 return
+        if (odd > 1) {
             System.out.println("I'm Sorry Hansoo");
             return;
         }
-        System.out.println(copy + sb + reverse);
 
-    }
+        // 이 시점에는 짝수 여러개, 홀수 하나만 남아야 한다.
+        StringBuilder sb = new StringBuilder();
 
-    private static boolean checkSide(String result) {
-        int i = result.length() / 2;
-        // 짝수
-        if (result.length() % 2 == 0) {
-            return (result.charAt(i - 1) == result.charAt(i));
-        } else // 홀수
-            return (result.charAt(i - 1) == result.charAt(i + 1));
+        for (int i = 0; i < 26; i++) {
+            if(alphabet[i] == 0) continue;
 
+            // 짝수라면 반절만 사용하고 0으로 모두 변경
+            if (alphabet[i] % 2 == 0) {
+                int half = alphabet[i] / 2;
+                for (int j = 0; j < half; j++) {
+                    sb.append((char) (i + 65));
+                }
+                alphabet[i] = 0;
+                continue;
+            }
+
+            // 홀수라면 반절 사용하고 1로 변경
+            // 수가 1이라면 그냥 pass
+            if (alphabet[i] == 1) continue;
+
+            int half = alphabet[i] / 2;
+            for (int j = 0; j < half; j++) {
+                sb.append((char) (i + 65));
+            }
+            alphabet[i] = 1;
+        }
+
+        StringBuilder tmp = new StringBuilder(sb.toString());
+        // 먼저 뒤집은 놈 만들기
+        StringBuilder reverse = sb.reverse();
+
+        // 기존 만들어진거에 홀수 붙이기
+        for (int i = 0; i < 26; i++) {
+            if (alphabet[i] == 1) {
+                tmp.append((char) (i + 65));
+            }
+        }
+
+        // 최종 모두 붙이기
+        tmp.append(reverse);
+        System.out.println(tmp);
     }
 }

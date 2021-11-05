@@ -96,6 +96,32 @@ public class MainRef {
                 op[i]++;
             }
         }
+    }
+
+    private static void dfsPractice(int num, int idx) {
+
+        if (num == N) {
+            maxValue = Math.max(maxValue, num);
+            minValue = Math.min(minValue, num);
+            return;
+        }
+
+        for (int i = 0; i < 4; i++) {
+            if (op[i] > 0) {
+                op[i]--;
+
+                switch (i) {
+                    case 0:
+                        dfsPractice(num + arr[idx], idx + 1);
+                        break;
+                    case 1:
+                        dfsPractice(num - arr[idx], idx + 1);
+                        break;
+                }
+                op[i]++;
+            }
+        }
+
 
     }
 }
