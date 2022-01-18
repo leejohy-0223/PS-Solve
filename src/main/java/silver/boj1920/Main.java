@@ -31,6 +31,7 @@ public class Main {
         System.out.println(sb);
     }
 
+    // 중복 되지 않는 배열의 경우, 일반적인 binarySearch 를 이용한다.
     private static void binarySearch(int[] arr, int target) {
         int lo = 0;
         int hi = arr.length - 1;
