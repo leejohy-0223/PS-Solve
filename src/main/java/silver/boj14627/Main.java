@@ -23,9 +23,16 @@ public class Main {
             maxL = Math.max(maxL, onionLength);
         }
 
-        long lo = 1; // 실제 최솟값을 넣어야한다.
-        long hi = maxL + 1; // 최대보다 하나 더 크게 ..
+        long lo = 1; // 실제 최솟값을 넣어야 한다.
+        long hi = maxL + 1; // 최대보다 하나 더 크게 넣어준다.
 
+        // upper bound
+        lo = upperBound(C, onionLengths, lo, hi);
+
+        System.out.println(makeRamenOnion(lo - 1, onionLengths, C));
+    }
+
+    private static long upperBound(int C, long[] onionLengths, long lo, long hi) {
         while (lo < hi) {
             long mid = (lo + hi) / 2;
             int makeCount = calculateMakeAbleCount(mid, onionLengths);
@@ -35,7 +42,7 @@ public class Main {
                 hi = mid;
             }
         }
-        System.out.println(makeRamenOnion(lo - 1, onionLengths, C));
+        return lo;
     }
 
     private static long makeRamenOnion(long use, long[] onionLengths, int orderCount) {
