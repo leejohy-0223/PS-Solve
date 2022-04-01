@@ -7,7 +7,7 @@ public class StrangeSolution {
         while (L-- > 0) {
             int cnt = 0;
             for (int c : citations) {
-                if (c >= L) {
+                if (c >= L) { // L= 4, c = 3
                     cnt++;
                 }
             }
@@ -18,4 +18,8 @@ public class StrangeSolution {
         }
         return answer;
     }
+
+    // 3, 0, 6, 1, 5
+
+    // L == 4
 }
