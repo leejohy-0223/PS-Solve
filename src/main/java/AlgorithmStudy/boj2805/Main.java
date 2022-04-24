@@ -33,12 +33,16 @@ public class Main {
                     sum += (l - mid);
                 }
             }
+            // 같을 때 하한을 올림 -> 가장 오른쪽을 구하는 방법
             if (sum >= M) {
                 min = mid + 1;
             } else {
                 max = mid;
             }
         }
+        // 결과적으로 min은 정답이 될 수 있는 값 + 1이 되므로, -1을 수행
         System.out.println(min - 1);
+
+        // https://jackpot53.tistory.com/33
     }
 }
