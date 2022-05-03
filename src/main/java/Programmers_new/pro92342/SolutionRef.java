@@ -23,10 +23,28 @@ public class SolutionRef {
 
         answers.sort(((o1, o2) -> {
             for (int i = 10; i >= 0; i--) {
-                if (o1[i] != o2[i]) {
-                    return o2[i] - o1[i];
+
+                // if (o1[i] != o2[i]) { // 두 값이 다를 경우에 뺄셈을 통해 정렬 여부를 수행한다. 뺄셈이 양수일 경우에만 정렬을 변경)
+                //     return o2[i] - o1[i]; // 양수일 경우, o2가 더 앞으로 와야하므로 자리가 변경된다
+                // }
+
+                if (o1[i] < o2[i]) {
+                    return 1; // 내림차순으로 정렬하기 위해, 뒤에가 크면 자리를 바꾼다.
+                }
+                if (o1[i] > o2[i]) {
+                    return -1; // 내림차순으로 정렬하기 위해, 앞에가 크면 유지한다.
                 }
             }
+            // {1, 1, 2, 3, 5} o2
+            // {0, 0, 1, 2, 3} o1
+            // 맨 뒤에서부터 비교한다.
+            // != 비교, 크기 비교로 바로 검증된다.
+
+
+            // {1, 1, 2, 3, 3} o2
+            // {0, 0, 1, 2, 3} o1
+            // 맨 뒤에서부터 비교한다.
+            // != 비크기 비교로 바로 검증된다.
             return 0;
         }));
 
@@ -91,8 +109,8 @@ public class SolutionRef {
         SolutionRef s = new SolutionRef();
         // int[] solution = s.solution(5, new int[] {2, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0});
         // int[] solution = s.solution(1, new int[] {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
-        int[] solution = s.solution(9, new int[] {0, 0, 1, 2, 0, 1, 1, 1, 1, 1, 1});
-        // int[] solution = s.solution(10, new int[] {0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 3});
+        // int[] solution = s.solution(9, new int[] {0, 0, 1, 2, 0, 1, 1, 1, 1, 1, 1});
+        int[] solution = s.solution(10, new int[] {0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 3});
         for (int i : solution) {
             System.out.print(i + " ");
         }
