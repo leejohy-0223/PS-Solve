@@ -69,8 +69,8 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution s = new Solution();
-        // int solution = s.solution(new int[] {3, 2, 7, 2}, new int[] {4, 6, 5, 1});
-        int solution = s.solution(new int[] {1, 2, 1, 2}, new int[] {1, 10, 1, 2});
+        int solution = s.solution(new int[] {3, 2, 7, 2}, new int[] {4, 6, 5, 1});
+        // int solution = s.solution(new int[] {1, 2, 1, 2}, new int[] {1, 10, 1, 2});
         System.out.println(solution);
     }
 }
