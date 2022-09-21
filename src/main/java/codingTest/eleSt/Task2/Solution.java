@@ -33,7 +33,8 @@ public class Solution {
         Solution s = new Solution();
         // int solution = s.solution(new int[] {2, 1, 3, 5, 4});
         // int solution = s.solution(new int[] {2, 3, 4, 1, 5});
-        int solution = s.solution(new int[] {1, 3, 4, 2, 5});
+        // int solution = s.solution(new int[] {1, 3, 4, 2, 5});
+        int solution = s.solution(new int[] {3, 2, 4, 1, 5});
         System.out.println("solution = " + solution);
     }
 
